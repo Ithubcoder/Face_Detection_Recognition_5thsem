@@ -125,11 +125,18 @@ def recognize_faces(names):
 
 
 if __name__ == "__main__":
-    # Collect face data (first run this to capture faces)
-    collect_face_data() # For 1st Person
+    # Input: Number of users to collect face data for
+    num_users = int(input("Enter the number of users to collect face data for: "))
+
+    # Loop to collect face data for each user
+    for i in range(1, num_users + 1):
+        print(f"Collecting face data for User {i}...")
+        collect_face_data()
 
     # Train the model (run this after collecting data)
+    print("Training the face recognition model...")
     names = train_face_recognizer()
 
     # Recognize faces using the trained model
+    print("Starting face recognition...")
     recognize_faces(names)
